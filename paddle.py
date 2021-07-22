@@ -11,20 +11,17 @@ class Paddle(Turtle):
         self.penup()
         self.speed(0)
         self.shape("square")
-        self.setheading(90)
-        self.shapesize(stretch_len=5)
+        # self.setheading(90)
+        self.shapesize(stretch_wid=5, stretch_len=1)
         self.goto(x=self.x_pos, y=self.y_pos)
         self.color("white") 
         
     def move_up(self):
         self.y_pos += 20
-        self.goto(self.x_pos, self.y_pos)
+        self.goto(x=self.x_pos, y=self.y_pos)
     
     def move_down(self):
         self.y_pos -= 20
-        self.goto(self.x_pos, self.y_pos)
-    
-    
-    def move_down(self):
-        self.backward(5)
+        self.goto(x=self.x_pos, y=self.y_pos)
+
     
