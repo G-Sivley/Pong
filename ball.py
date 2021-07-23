@@ -7,8 +7,8 @@ class Ball(Turtle):
         
         self.x_pos = 0
         self.y_pos = 0
-        self.x_dir = 5
-        self.y_dir = 5
+        self.x_dir = 10
+        self.y_dir = 10
         self.penup()
         self.shape("circle")
         self.color("white")
@@ -24,3 +24,11 @@ class Ball(Turtle):
         
     def bounce_x(self):
         self.x_dir *= -1
+        
+    
+    def reset_ball(self):
+        self.x_pos = 0
+        self.y_pos = 0
+        self.x_dir = 10
+        self.y_dir = 10
+        self.bounce_x() 

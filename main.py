@@ -1,6 +1,7 @@
 from turtle import Screen, Turtle
 from paddle import Paddle
 from ball import Ball
+from scoreboard import Scoreboard
 import time
 
 
@@ -14,6 +15,8 @@ screen = Screen()
 screen.setup(width=WIDTH, height=HEIGHT)
 screen.bgcolor(BGCOLOR)
 screen.tracer(0)
+
+scoreboard = Scoreboard()
 
 # Listening Functions
 screen.listen()
@@ -46,8 +49,18 @@ while game_is_on:
 # Step 6: detect collision with paddle
     if ball.distance(r_paddle) < 50 and ball.xcor() > 320 or ball.distance(l_paddle) < 50 and ball.xcor() < -320:
         ball.bounce_x()
-        
+        ball.x_dir *= 1.1
+        ball.y_dir *= 1.1
+  
 # step 7: detect when paddle misses
+    if ball.xcor() > 400:
+        scoreboard.r_point()
+        ball.reset_ball()
+    
+    elif ball.xcor() < -400:
+        scoreboard.l_point()
+        ball.reset_ball()
+    
 # step 8: Keep score
 
 
